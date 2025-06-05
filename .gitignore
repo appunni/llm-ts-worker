@@ -115,3 +115,6 @@ temp/
 # Web Workers build artifacts
 *.worker.js
 *.worker.js.map
+
+# GitHub Actions
+.github/workflows/*.log

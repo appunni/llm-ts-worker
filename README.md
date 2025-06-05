@@ -173,13 +173,49 @@ The project uses:
 
 MIT License - see the original generic-llm-worker-ts project for details.
 
-## Contributing
+## Deployment
 
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Test thoroughly
-5. Submit a pull request
+This project is configured for automatic deployment to GitHub Pages using GitHub Actions.
+
+### Automatic Deployment
+
+The project automatically deploys to GitHub Pages when you push to the `main` branch:
+
+1. **GitHub Actions Workflow**: `.github/workflows/deploy.yml`
+2. **Build Process**: 
+   - Installs dependencies with `npm ci`
+   - Runs type checking with `npm run type-check`
+   - Builds the project with `npm run build`
+   - Deploys the `dist` folder to GitHub Pages
+
+### Manual Deployment Setup
+
+To enable GitHub Pages deployment for your fork:
+
+1. **Repository Settings**:
+   - Go to your repository's **Settings** tab
+   - Navigate to **Pages** in the sidebar
+   - Under **Source**, select **GitHub Actions**
+
+2. **Update Base URL**:
+   - The `vite.config.ts` is configured to use `/llm-ts-worker/` as the base URL
+   - Update this to match your repository name: `'/your-repo-name/'`
+
+3. **Enable Workflows**:
+   - Push any commit to `main` branch
+   - Check the **Actions** tab to monitor deployment progress
+
+### Local Production Build
+
+Test the production build locally:
+
+```bash
+# Build for production
+npm run build
+
+# Preview production build
+npm run preview
+```
 
 ## Resources
 
