@@ -2,6 +2,8 @@
 
 This example demonstrates how to use the `generic-llm-worker.ts` to run large language models directly in the browser using HuggingFace Transformers and WebGPU acceleration.
 
+> 🤖 **Built with GitHub Copilot** - This project was developed with the assistance of GitHub Copilot for enhanced productivity and code quality.
+
 ## Features
 
 - ✅ **Modern Tech Stack**: Vite + TypeScript + Tailwind CSS (with Vite plugin)
@@ -168,54 +170,6 @@ The project uses:
 - **`@tailwindcss/vite`**: Modern Tailwind CSS integration (no PostCSS needed)
 - **Worker support**: ES modules in web workers
 - **CORS headers**: Required for SharedArrayBuffer/WebGPU
-
-## License
-
-MIT License - see the original generic-llm-worker-ts project for details.
-
-## Deployment
-
-This project is configured for automatic deployment to GitHub Pages using GitHub Actions.
-
-### Automatic Deployment
-
-The project automatically deploys to GitHub Pages when you push to the `main` branch:
-
-1. **GitHub Actions Workflow**: `.github/workflows/deploy.yml`
-2. **Build Process**: 
-   - Installs dependencies with `npm ci`
-   - Runs type checking with `npm run type-check`
-   - Builds the project with `npm run build`
-   - Deploys the `dist` folder to GitHub Pages
-
-### Manual Deployment Setup
-
-To enable GitHub Pages deployment for your fork:
-
-1. **Repository Settings**:
-   - Go to your repository's **Settings** tab
-   - Navigate to **Pages** in the sidebar
-   - Under **Source**, select **GitHub Actions**
-
-2. **Update Base URL**:
-   - The `vite.config.ts` is configured to use `/llm-ts-worker/` as the base URL
-   - Update this to match your repository name: `'/your-repo-name/'`
-
-3. **Enable Workflows**:
-   - Push any commit to `main` branch
-   - Check the **Actions** tab to monitor deployment progress
-
-### Local Production Build
-
-Test the production build locally:
-
-```bash
-# Build for production
-npm run build
-
-# Preview production build
-npm run preview
-```
 
 ## Resources
 
