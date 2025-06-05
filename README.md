@@ -2,6 +2,8 @@
 
 This example demonstrates how to use the `generic-llm-worker.ts` to run large language models directly in the browser using HuggingFace Transformers and WebGPU acceleration.
 
+> 🚀 **[Live Demo](https://appunni.github.io/llm-ts-worker/)** - Try the app directly in your browser!
+
 > 🤖 **Built with GitHub Copilot** - This project was developed with the assistance of GitHub Copilot for enhanced productivity and code quality.
 
 ## Features
