@@ -73,21 +73,6 @@ function createUI() {
           </div>
         </div>
 
-        <!-- Mode Selection -->
-        <div class="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 mb-6">
-          <h2 class="text-xl font-semibold text-gray-900 dark:text-white mb-4">Generation Mode</h2>
-          <div class="flex gap-4">
-            <label class="flex items-center">
-              <input type="radio" name="mode" value="chat" checked class="mr-2 text-blue-600">
-              <span class="text-gray-700 dark:text-gray-300">Chat Mode (Conversation)</span>
-            </label>
-            <label class="flex items-center">
-              <input type="radio" name="mode" value="single" class="mr-2 text-blue-600">
-              <span class="text-gray-700 dark:text-gray-300">Single Response</span>
-            </label>
-          </div>
-        </div>
-
         <!-- Chat Interface -->
         <div class="bg-white dark:bg-gray-800 rounded-lg shadow-md mb-6">
           <div class="p-6 border-b border-gray-200 dark:border-gray-700">
@@ -151,9 +136,6 @@ function initWorker() {
         break
       case 'generateChat':
         handleChatGeneration(status, data)
-        break
-      case 'generateSingle':
-        handleSingleGeneration(status, data)
         break
       case 'clearSession':
         console.log('Session cleared:', data)
@@ -268,12 +250,6 @@ function handleChatGeneration(status: string, data: any) {
   }
 }
 
-// Handle single generation
-function handleSingleGeneration(status: string, data: any) {
-  // Similar to chat generation but without session management
-  handleChatGeneration(status, data)
-}
-
 // UI Helper functions
 function updateModelStatus(text: string, className: string) {
   const statusEl = document.getElementById('model-status')!
@@ -370,38 +346,22 @@ function sendMessage() {
   
   if (!message || !isModelLoaded) return
   
-  const modeInputs = document.querySelectorAll('input[name="mode"]') as NodeListOf<HTMLInputElement>
-  const selectedMode = Array.from(modeInputs).find(input => input.checked)?.value || 'chat'
-  
   addMessage('user', message)
   messageInput.value = ''
   
-  if (selectedMode === 'chat') {
-    worker?.postMessage({
-      type: 'generateChat',
-      data: {
-        message,
-        sessionId: currentSessionId,
-        generationConfig: {
-          max_new_tokens: 512,
-          temperature: 0.7,
-          top_p: 0.9
-        }
+  // Always use chat mode for simplified interface
+  worker?.postMessage({
+    type: 'generateChat',
+    data: {
+      message,
+      sessionId: currentSessionId,
+      generationConfig: {
+        max_new_tokens: 512,
+        temperature: 0.7,
+        top_p: 0.9
       }
-    })
-  } else {
-    worker?.postMessage({
-      type: 'generateSingle',
-      data: {
-        prompt: message,
-        generationConfig: {
-          max_new_tokens: 512,
-          temperature: 0.7,
-          top_p: 0.9
-        }
-      }
-    })
-  }
+    }
+  })
 }
 
 // Initialize the application
