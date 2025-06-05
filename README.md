@@ -1,6 +1,6 @@
 # Generic LLM Worker Example
 
-This example demonstrates how to use the `generic-llm-worker.ts` to run large language models directly in the browser using HuggingFace Transformers and WebGPU acceleration.
+This example demonstrates how to use the `generic-llm-worker.ts` to run large language models directly in the browser using HuggingFace Transformers and WebGPU acceleration for conversational AI chat.
 
 > 🚀 **[Live Demo](https://appunni.github.io/llm-ts-worker/)** - Try the app directly in your browser!
 
@@ -10,10 +10,10 @@ This example demonstrates how to use the `generic-llm-worker.ts` to run large la
 
 - ✅ **Modern Tech Stack**: Vite + TypeScript + Tailwind CSS (with Vite plugin)
 - ✅ **WebGPU Acceleration**: Hardware-accelerated inference
-- ✅ **Two Generation Modes**: Chat conversations vs single responses
+- ✅ **Chat Interface**: Conversational AI with context preservation
 - ✅ **Real-time Streaming**: Live token generation with performance stats
 - ✅ **Progress Tracking**: Visual progress bars during model loading
-- ✅ **Session Management**: Conversation history with context preservation
+- ✅ **Session Management**: Conversation history and context preservation
 - ✅ **Dark/Light Theme**: Automatic theme detection
 - ✅ **Responsive Design**: Works on desktop and mobile devices
 
@@ -40,10 +40,7 @@ npm run dev
 1. **Check WebGPU Support**: The app will automatically detect WebGPU availability
 2. **Select a Model**: Choose between SmolLM2 360M (lightweight) or 1.7B (better quality)
 3. **Load Model**: Click "Load Model" and wait for download/initialization
-4. **Choose Mode**: 
-   - **Chat Mode**: Maintains conversation history
-   - **Single Response**: Independent responses without context
-5. **Start Chatting**: Type your message and press Enter or click Send
+4. **Start Chatting**: Type your message and press Enter or click Send
 
 ## Available Models
 
